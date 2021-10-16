@@ -5,7 +5,7 @@ public class Data {
 	String testingURL = "http://advantageonlineshopping.com/#/";
 	
 	// Data
-	String userName = "UserTest";  // Change for every test.
+	String userName = "UserTestM";  // Change for every test.
 	String userEmail = "demo@advantachchopin.test";
 	String userPassword = "demoAlpha123";
 	String itemName = "mouse";
@@ -30,6 +30,7 @@ public class Data {
 	String xpEmail = "//input[@name='emailRegisterPage']";
 	String xpPassword = "//input[@name='passwordRegisterPage']";
 	String xpPasswordConfirm = "//input[@name='confirm_passwordRegisterPage']";
+	String xpOffersSpam = "//*[@id='formCover']/div[4]/input";
 	String xpCheckAgree = "//input[@name='i_agree']";
 	String xpRegisterButton = "//button[text()='REGISTER']";
 	
@@ -41,7 +42,8 @@ public class Data {
 	String userMenuSpanXpath = "//li[@class='o_user_menu']/a[@role='button']/span[@class='oe_topbar_name']";
 	
 	// Search Item
-	String shopButtonXpath = "//a[@href='/shop']";
+	String xpSearchButton = "//a[@class='img']//descendant::div[@id='searchSection']//descendant::a";
+	String xpSearchBox = "//div[@class='autoCompleteCover']/input[@id='autoComplete']";
 	String searchInputXpath = "//div[@role='search' and @class='input-group']/input[@type='search' and contains(@class, 'oe_search_box')]";
 	// String searchButtonXpath = "//button[@type='submit' and contains(@class, 'oe_search_button')]";
 	String searchButtonXpath = "//button[@class='btn btn-primary oe_search_button' and @type='submit']/parent::div[@class='input-group-append']";
