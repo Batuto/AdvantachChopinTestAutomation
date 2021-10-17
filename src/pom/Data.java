@@ -1,11 +1,14 @@
 package pom;
 
+
 public class Data {
+	
+	
 	// Testing URL
 	String testingURL = "http://advantageonlineshopping.com/#/";
 	
 	// Data
-	String userName = "UserTestM";  // Change for every test.
+	String userName = "UserTestU";  // Change for every test.
 	String userEmail = "demo@advantachchopin.test";
 	String userPassword = "demoAlpha123";
 	String itemName = "mouse";
@@ -23,6 +26,7 @@ public class Data {
 	String xpLoader = "/html/body/div[2][@class='loader']";
 	
 	// Sign-Up
+	String xpCloseSignUpModal = "/html/body/login-modal/div/div/div[2]";
 	//String signUpXpath = "//li/a[contains(@class,'nav-link font-weight-bold')]";
 	String signUpXpath = "//a[@aria-label='UserMenu']//a[@title='USER']//*[name()='svg']";
 	String xpNewAccount = "//a[normalize-space()='CREATE NEW ACCOUNT']";
@@ -35,16 +39,11 @@ public class Data {
 	String xpRegisterButton = "//button[text()='REGISTER']";
 	
 	
-	       // OLD
-	String emailLoginXpath = "//div[@class='form-group field-login']/input[@id='login'][@name='login']";
-	String passwordLoginXpath = "//div[@class='form-group field-password']/input[@id='password'][@name='password']";
-	String loginButtonXpath = "//div[contains(@class, 'oe_login_buttons')]/button[@type='submit']";
-	String userMenuSpanXpath = "//li[@class='o_user_menu']/a[@role='button']/span[@class='oe_topbar_name']";
-	
 	// Search Item
 	String xpSearchButton = "//a[@class='img']//descendant::div[@id='searchSection']//descendant::a";
 	String xpSearchBox = "//div[@class='autoCompleteCover']/input[@id='autoComplete']";
-	String searchInputXpath = "//div[@role='search' and @class='input-group']/input[@type='search' and contains(@class, 'oe_search_box')]";
+	String xpSearchBoxXpanded = "//div[@class='autoCompleteCover' and contains(@style,'opacity: 1;')]";
+	String xpSearchBoxClose = "//div[@class='autoCompleteCover']/div[contains(@data-ng-click, 'close')]/img";
 	// String searchButtonXpath = "//button[@type='submit' and contains(@class, 'oe_search_button')]";
 	String searchButtonXpath = "//button[@class='btn btn-primary oe_search_button' and @type='submit']/parent::div[@class='input-group-append']";
 	

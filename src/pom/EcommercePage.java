@@ -23,6 +23,7 @@ public class EcommercePage extends Base {
 		waitUntilClickable(By.xpath(dataSet.signUpXpath));
 		click(By.xpath(dataSet.signUpXpath));
 		waitUntilNotPresent(By.xpath(dataSet.xpLoader));
+		waitUntilClickable(By.xpath(dataSet.xpCloseSignUpModal));
 		waitUntilClickable(By.xpath(dataSet.xpNewAccount));
 		click(By.xpath(dataSet.xpNewAccount));
 		waitUntilClickable(By.xpath(dataSet.xpUserName));
@@ -44,18 +45,18 @@ public class EcommercePage extends Base {
 		//waitLoader();
 	    waitUntilClickable(By.xpath(dataSet.xpSearchButton));
 	    click(By.xpath(dataSet.xpSearchButton));
+	    waitUntilPresent(By.xpath(dataSet.xpSearchBoxClose));
+	    //waitUntilClickable(By.xpath(dataSet.xpSearchBox));
 	    //waitUntilPresent(By.xpath(dataSet.xpSearchBox));
+	    //waitUntilPresent(By.xpath(dataSet.xpSearchBoxClose));
+	    waitUntilPresent(By.xpath(dataSet.xpSearchBoxXpanded));
+	    click(By.xpath(dataSet.xpSearchBox));
+	    writeTextSlow(dataSet.itemName, By.xpath(dataSet.xpSearchBox));
 	    
 	}
 
 	public void searchEnterItem(String itemName) {
 		// Search for the itemName in the search bar
-		waitUntilClickable(By.xpath(dataSet.xpSearchButton));
-		click(By.xpath(dataSet.xpSearchButton));
-		waitUntilPresent(By.xpath(dataSet.searchInputXpath));
-		writeText(itemName, By.xpath(dataSet.searchInputXpath));
-		waitUntilClickable(By.xpath(dataSet.searchButtonXpath));
-		click(By.xpath(dataSet.searchButtonXpath));
 		
 	}
 
