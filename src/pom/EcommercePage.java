@@ -30,7 +30,7 @@ public class EcommercePage extends Base {
 		writeText(dataSet.userName, By.xpath(dataSet.xpUserName));
 		writeText(dataSet.userEmail, By.xpath(dataSet.xpEmail));
 		writeText(dataSet.userPassword, By.xpath(dataSet.xpPassword));
-		writeText(dataSet.userPassword, By.xpath(dataSet.xpPasswordConfirm));
+		writeTextSlow(dataSet.userPassword, By.xpath(dataSet.xpPasswordConfirm));
 		waitUntilClickable(By.xpath(dataSet.xpOffersSpam));
 		click(By.xpath(dataSet.xpOffersSpam));
 		waitUntilClickable(By.xpath(dataSet.xpCheckAgree));
@@ -38,6 +38,7 @@ public class EcommercePage extends Base {
 		click(By.xpath(dataSet.xpCheckAgree));
 		waitUntilClickable(By.xpath(dataSet.xpRegisterButton));
 		click(By.xpath(dataSet.xpRegisterButton));
+		waitUntilTextPresent(By.xpath(dataSet.xpMenuUserLinkWName), dataSet.userName);
 
 	}
 	
@@ -55,9 +56,19 @@ public class EcommercePage extends Base {
 	    
 	}
 
-	public void searchEnterItem(String itemName) {
+	public String searchEnterItem() {
 		// Search for the itemName in the search bar
-		
+		waitUntilClickable(By.xpath(dataSet.xpSearchButton));
+	    click(By.xpath(dataSet.xpSearchButton));
+	    waitUntilPresent(By.xpath(dataSet.xpFirstItem2ndResult));
+	    click(By.xpath(dataSet.xpFirstItem2ndResult));
+	    waitUntilPresent(By.xpath(dataSet.xpItemName));
+	    waitUntilPresent(By.xpath(dataSet.xpPlusItem));
+	    click(By.xpath(dataSet.xpPlusItem));
+	    click(By.xpath(dataSet.xpAddToCartBtn));
+	    String itemCount = getValue(dataSet.xpItemCount);
+	    waitUntilTextPresent(By.xpath(dataSet.xpShoppingCartLink), itemCount);
+	    return itemCount;
 	}
 
 	

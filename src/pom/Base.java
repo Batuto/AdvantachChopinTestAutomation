@@ -48,6 +48,10 @@ public class Base {
 		return driver.findElement(By.xpath(locator)).getText();
 	}
 	
+	public String getValue(String locator) {
+		return driver.findElement(By.xpath(locator)).getAttribute("value");
+	}
+	
 	public void writeText(String inputText, By locator) {
 		driver.findElement(locator).sendKeys(inputText);
 	}
@@ -82,6 +86,10 @@ public class Base {
 	
 	public void waitUntilClickable(By locator) {
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
+	}
+	
+	public void waitUntilTextPresent(By locator, String text) {
+		wait.until(ExpectedConditions.textToBePresentInElementLocated(locator, text));		
 	}
 	
 	public void visit(String url) {

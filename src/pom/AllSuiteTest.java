@@ -29,26 +29,30 @@ public class AllSuiteTest {
 	public void LoadMainPage() {
 		ecommercePage.visit(dataSet.testingURL);
 		Boolean asertionLoadPage = ecommercePage.isDisplayed(dataSet.signUpXpath);
-		//Assert.assertTrue(asertionLoadPage,"The page could not be loaded.");
+		Assert.assertTrue(asertionLoadPage,"The page could not be loaded.");
 	}
 
 @Test (description="This method validates the Sign Up", dependsOnMethods="LoadMainPage")
 	public void SignUpTest() {
 		ecommercePage.registerUser(dataSet.userEmail, dataSet.userPassword);
-		//Boolean asertionLogin = ecommercePage.isDisplayed(dataSet.userMenuSpanXpath);
-		//Assert.assertTrue(asertionLogin,"The login could not be made.");
+		String assertionSignUp = ecommercePage.getText(dataSet.xpMenuUserLinkWName);
+		Assert.assertEquals(assertionSignUp, dataSet.userName,"The login could not be made.");
 		//ecommercePage.visit(dataSet.testingURL);
 	}
 
 @Test(description="This method validates a searching for an item on the catalog", dependsOnMethods="SignUpTest")
 	public void SearchItemBannerTest() {
 		ecommercePage.writeSearchItem(dataSet.itemName);
-		//Boolean asertionSearch = ecommercePage.isDisplayed(dataSet.secondItemXpath);
-		//Assert.assertTrue(asertionSearch,"The searching could not be made.");
+		Boolean asertionSearch = ecommercePage.isDisplayed(dataSet.xpFirstItemResult);
+		Assert.assertTrue(asertionSearch,"The searching could not be made.");
 	}
+
 @Test(description="This method validates a search for an item on the catalog", dependsOnMethods="SearchItemBannerTest")
     public void SearchItemEnterTest( ) {
-	
-}
+	  	String count = (String) ecommercePage.searchEnterItem();
+	  	String assertionAddToCart = ecommercePage.getText(dataSet.xpItemCount);
+	  	Assert.assertEquals(assertionAddToCart, count);
+	    
+    }
 
 }
